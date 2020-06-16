@@ -1,4 +1,3 @@
-<%@ page pageEncoding="utf-8" %>
 <!-- ajax_proxy.html -->
 <!DOCTYPE html>
 <html lang="en">
@@ -31,23 +30,26 @@
                     },
                     success : function(obj){
                             var msg = "";
-                            
+                            var a1=new Array();
+                            var b1=new Array();
+                            var name1= new Array();
                         /* $("#sel").append(JSON.stringify(obj)); */
                         var jsonObj = JSON.stringify(obj);
                         msg +="</tr>";
                                                 msg +="</thead>";
                                                 msg +="<tbody>";
                                                 for(var i in obj.rentBikeStatus.row){
-                      let a=obj.rentBikeStatus.row[i].stationLatitude;
-                      let b=obj.rentBikeStatus.row[i].stationLongitude;
-                      var name = obj.rentBikeStatus.row[i].stationName;
+                       a1[i]=obj.rentBikeStatus.row[i].stationLatitude;
+                       b1[i]=obj.rentBikeStatus.row[i].stationLongitude;
+                      name1[i] = obj.rentBikeStatus.row[i].stationName;
                       
                       var msg1= "";
-                      msg1+="<body>"+"<button id="+name+">"+name+"</button>"+"</body>";
+                      msg1+="<body>"+"<button id=name1"+i+">"+name1[i]+"</button>"+"</body>";
+                      
                                 $("#sel").append(msg1);
                                 
                       
-                      msg +="<td><a href='https://map.kakao.com/link/map/"+a+","+b+"' target='_blank'>"+name+"</a></td>";
+                      msg +="<td><a href='https://map.kakao.com/link/map/"+a1[i]+","+b1[i]+"' target='_blank'>"+name1[i]+"</a></td>";
                       
                       msg += "</tr>";
                       
@@ -57,31 +59,18 @@
                       
                       
                       
-                      var container = document.getElementById('map');
-                              var options = {
-                                      center: new kakao.maps.LatLng(a, b),
-                                      level: 3
-                              };
-                              
-                              var coords=new daum.maps.LatLng(a,b);
-                              
-                               var marker = new daum.maps.Marker({
-                             map:map,
-                             position:coords
-                     });
-                               
-                               
-                              var map = new kakao.maps.Map(container, options);
+                     
                               
                               
                               
                               
-                                                }
+                                                } //반복문 끝
                                                 
-                                                var marker = new daum.maps.Marker({
-                                             map:map,
-                                             position:coords
-                                     });
+                                                
+                                                
+                                                console.log(name1[1]);
+                                                
+                                                
                       msg +="</tbody>";
                                                 msg +="</table>";
                                                 msg +="</div>"; 
@@ -89,8 +78,49 @@
                                                 
                                                 
                                                 $("#sel").append(msg);
+                                                for (var i = 0; i < name1.length; i++) {
+                                                    (function call(j) {
+                                                            $("#name1"+j).click(function () {
+                                                                    var container = document.getElementById('map');
+                                                              var options = {
+                                                                      center: new kakao.maps.LatLng(a1[j], b1[j]),
+                                                                      level: 3
+                                                              };
+                                                              
+                                                              var map = new kakao.maps.Map(container, options);
+                                                              
+                                                              var coords=new daum.maps.LatLng(a1[j],b1[j]);
+                                                              
+                                                               var marker = new daum.maps.Marker({
+                                                             map:map,
+                                                             position:coords
+                                                     });
+                                                        },);
+                                                    })(i);
+                                                }
+                                                
+                                                var c;
                                                 
                                                 
+                                                $("#name1"+0).click(function(){
+                                                         var container = document.getElementById('map');
+                                                      var options = {
+                                                              center: new kakao.maps.LatLng(a1[0], b1[0]),
+                                                              level: 3
+                                                      };
+                                                      
+                                                      var map = new kakao.maps.Map(container, options);
+                                                      
+                                                      var coords=new daum.maps.LatLng(a1[0],b1[0]);
+                                                      
+                                                       var marker = new daum.maps.Marker({
+                                                     map:map,
+                                                     position:coords
+                                             });
+                                                       
+                                                       
+                                                      
+                                    });
                                                 
                                                 
                   
@@ -99,7 +129,7 @@
                         
                         
                                                 
-                                                
+                                                        
                     }
                     
                     
