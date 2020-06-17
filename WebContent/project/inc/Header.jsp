@@ -1,3 +1,4 @@
+<%@page import="kr.or.kpc.dto.CustomerDto"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
@@ -37,13 +38,11 @@
   <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
     <a class="navbar-brand" href="#">CoronaSpot</a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-      <li class="nav-item">
-        <a class="nav-link" href="Info.jsp">Info <span class="sr-only">(current)</span></a>
-      </li>
 
-      <li class="nav-item">
-        <button class="btn btn-outline-success my-2 my-sm-0" button type="button" onclick="location.href='Title.jsp' ">Login</button>
-      </li>
+
+
+      
+      
     </ul>
     <!-- 
     <form class="form-inline my-2 my-lg-0">
@@ -51,5 +50,26 @@
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
  	-->
+ 	<div class="form-inline my-2 my-lg-0">
+	      	<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+	      	<%
+	      		CustomerDto customerDto = (CustomerDto)session.getAttribute("login");
+	      		if(customerDto != null){
+	      	%>
+		      <li class="nav-item active">
+		        <a class="nav-link">
+		        	<strong style="color:white;"><%=customerDto.getName() %></strong>님
+		        </a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="../grammar/logout.jsp">[로그아웃]</a>
+		      </li>
+	    	<%}else{ %>
+	    		<li class="nav-item">
+		        	<a class="nav-link" href="../grammar/Title.jsp">로그인</a>
+		      	</li>
+	    	<%} %>
+	    	</ul>
+	    </div>
   </div>
 </nav>

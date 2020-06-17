@@ -48,42 +48,31 @@
   		padding: 10px;
   		font-size: 16px;
 	}
-
     </style>
     
   <body cellpadding="0" cellspacing="0" marginleft="0" margintop="0" width="100%" height="100%" align="center">
-	<form method="post" action="checkLogin.jsp">
+	<form method="post" action="memberOK.jsp">
 	<div class="card align-middle" style="width:20rem; border-radius:20px;">
 		<div class="card-title" style="margin-top:30px;">
 			<p><img src="로고3.png" align="center"></p>
 		</div>
 		<div class="card-body">
       <form class="form-signin" method="POST" onSubmit="logincall();return false">
-        <div class="form-group">
-	                <input type="text" class="form-control" id="email" name="email" placeholder="Your Email *" value="" />
-	              	<div class="invalid-feedback" id="errorEmail">
-				       이메일을 입력하세요.
-				    </div>
-				    <div class="valid-feedback">
-				        Looks good!
-				    </div>
-	              </div>
-	              <div class="form-group">
-	                <input type="password" class="form-control" id="pwd" name="pwd"  placeholder="Your Password *" value="" />
-	              	<div class="invalid-feedback" id="errorPwd">
-				    	비밀번호를 입력하세요.
-				    </div>
-				    <div class="valid-feedback">
-				    	운이 좋군...
-				    </div>
-	              </div>
+        <h5 class="form-signin-heading">로그인 정보를 입력하세요</h5>
+        <label for="inputEmail" class="sr-only">Your ID</label>
+        <input type="text" name="id" id="uid" class="form-control" placeholder="Your ID" required autofocus><BR>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="pw" id="upw" class="form-control" placeholder="Password" required><br>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> 기억하기
+          </label>
+        </div>
         <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit">로 그 인</button>
       </form>
       
 		</div>
 	</div>
-	
-
 
 	<div class="modal">
 	</div>
@@ -92,78 +81,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
-    <script>
-		$(function(){
-			const email = $("#email");
-			const pwd = $("#pwd");
-			$("#loginMember").click(function(e){
-				e.preventDefault();
-				if(!email.val()){
-					email.addClass("is-invalid");
-					email.focus();
-					return;
-				}
-				if(validateEmail(email.val())){
-					email.addClass("is-valid");
-				}else{
-					$("#errorEmail").text('이메일 주소 형식이 맞지 않습니다.');
-					email.addClass("is-invalid");
-					email.focus();
-					return;
-				}
-				if(!pwd.val()){
-					pwd.addClass("is-invalid");
-					pwd.focus();
-					return;
-				}
-				if(pwd.val().length >= 8 && pwd.val().length <=12){
-					pwd.addClass("is-valid");
-				}else{
-					$("#errorPwd").text('비밀번호는 8-12자리 이어야 합니다.');
-					pwd.addClass("is-invalid");
-					pwd.focus();
-					return;
-				}
-				f.submit();
-			});
-			
-			email.keyup(function(e){
-				email.removeClass("is-invalid");
-				if(!email.val()){
-					email.removeClass("is-invalid");
-					email.removeClass("is-valid");
-					return;
-				}
-				if(validateEmail(email.val())){
-					email.addClass("is-valid");
-				}else{
-					$("#errorEmail").text('이메일 주소 형식이 맞지 않습니다.');
-					email.addClass("is-invalid");
-					return;
-				}
-				
-			});
-			pwd.keyup(function(e){
-				pwd.removeClass("is-invalid");
-				if(!pwd.val()){
-					pwd.removeClass("is-invalid");
-					pwd.removeClass("is-valid");
-					return;
-				}
-				if(pwd.val().length >= 8 && pwd.val().length <=12){
-					pwd.addClass("is-valid");
-				}else{
-					$("#errorPwd").text('비밀번호는 8-12자리 이어야 합니다.');
-					pwd.addClass("is-invalid");
-				}
-				
-			});
-			function validateEmail(email) {
-				var re = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-				return re.test(email);
-			}
-		});
-	</script>
+    
   </body>
 </html>
 <%@ include file="../inc/Footer.jsp"%>

@@ -3,7 +3,7 @@
 <%@page import="kr.or.kpc.dao.NoticeDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../inc/header.jsp"%>
+<%@ include file="../inc/Header.jsp"%>
 <%
 	int displayCount = 3;
 	int displayPageCount = 5;
@@ -34,9 +34,9 @@
 	
 %>
 	<nav aria-label="breadcrumb ">
-	  <ol class="breadcrumb justify-content-end">
-	    <li class="breadcrumb-item "><a href="#">홈</a></li>
-	    <li class="breadcrumb-item active">공지사항</li>
+	  <ol class="breadcrumb">
+	  	<li class="breadcrumb-item active">공지사항</li>
+	    <li class="breadcrumb-item "><a href="../grammar/main.jsp">홈</a></li>
 	  </ol>
 	</nav>
 	
@@ -155,4 +155,4 @@
 
 
 
-<%@ include file="../inc/footer.jsp"%>
+<%@ include file="../inc/Footer.jsp"%>

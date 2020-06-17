@@ -3,21 +3,17 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%
 	request.setCharacterEncoding("utf-8");
-	String writer = request.getParameter("writer");
-	String title = request.getParameter("title");
-	String content = request.getParameter("content");
 	int num = Integer.parseInt(request.getParameter("num"));
 	int cPage = Integer.parseInt(request.getParameter("page"));
 	
 	NoticeDao dao = NoticeDao.getInstance();
-	NoticeDto dto = new NoticeDto(num, writer,title,content,null);
 	
-	int resultCount = dao.update(dto);
+	int resultCount = dao.delete(num);
 	if(resultCount == 1){
 		%>
 		<script>
-			alert('글이 수정 되었습니다.');
-			location.href="view.jsp?num=<%=num%>&page=<%=cPage%>";
+			alert('글이 삭제 되었습니다.');
+			location.href="list.jsp?page=<%=cPage%>";
 		</script>
 		<%
 	}else{

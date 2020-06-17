@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../inc/header.jsp"%>
+<%@ include file="../inc/Header.jsp"%>
 <%
 	String tempPage = request.getParameter("page");
 	int cPage = 0;
@@ -75,4 +75,4 @@
 			});
 		});
 	</script>
-<%@ include file="../inc/footer.jsp"%>
+<%@ include file="../inc/Footer.jsp"%>
