@@ -1,6 +1,9 @@
+<%@page import="kr.or.kpc.dto.NoticeDto"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="kr.or.kpc.dao.NoticeDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" %>
-<%@include file = "../inc/header.jsp"%>
+    pageEncoding="UTF-8"%>
+<%@ include file="../inc/header.jsp"%>
 <%
 	String tempPage = request.getParameter("page");
 	int cPage = 0;
@@ -22,8 +25,8 @@
 	
 	*/
 	NoticeDao dao = NoticeDao.getInstance();
-	int start   =  (cPage-1)*4;
-	ArrayList<NoticeDto> list = dao.select(start ,  4 );
+	int start   =  (cPage-1)*10;
+	ArrayList<NoticeDto> list = dao.select(start ,  10 );
 	
 	
 %>
@@ -59,35 +62,93 @@
 				    <tr>
 				      <th scope="row"><%=dto.getNum() %></th>
 				      <td><%=dto.getWriter() %></td>
-				      <td><a href="view.jsp"><%=dto.getTitle() %></a></td>
+				      <td><a href="view.jsp?page=<%=cPage%>&num=<%=dto.getNum()%>"><%=dto.getTitle() %></a></td>
 				      <td><%=dto.getRegdate() %></td>
 				    </tr>
 				    <%}%>
 				    
 				  </tbody>
 				</table>
-				
+				<%
+					int totalRows = dao.getRows();//128
+					int totalPage = 0;
+					int currentBlock = 0;
+					int totalBlock = 0;
+					
+					if(totalRows%10==0){
+						totalPage = totalRows/10;
+					}else{
+						totalPage =  totalRows/10 +1;
+					}
+					if(totalPage == 0){
+						totalPage = 1;
+					}
+					
+					if(cPage % 10 == 0){
+						currentBlock = cPage/10;
+					}else{
+						currentBlock = cPage/10 +1;
+					}
+					
+					if(totalPage%10==0){
+						totalBlock = totalPage/10;
+					}else{
+						totalBlock = totalPage/10 +1;
+					}
+					
+					int startPage = 1+(currentBlock -1) *10;
+					int endPage = 10 +(currentBlock -1) *10;
+					
+					if(currentBlock == totalBlock){
+						endPage = totalPage;
+					}
+					
+					/*
+					128개
+					Previous 1 2 3 4 5 6 7 8 9 10 Next  => currentBlock : 1block
+					Previous 11 12 13 Next              => currentBlock : 2block
+					
+					65개
+					Previous 1 2 3 4 5 6 7 Next
+					*/
+					
+				%>
 				<nav aria-label="Page navigation example">
 				  <ul class="pagination justify-content-center">
+				  	<%if(currentBlock==1){ %>
 				    <li class="page-item disabled">
 				      <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
 				    </li>
-				    <li class="page-item"><a class="page-link" href="#">1</a></li>
-				    <li class="page-item"><a class="page-link" href="#">2</a></li>
-				    <li class="page-item"><a class="page-link" href="#">3</a></li>
+				    <%}else{ %>
 				    <li class="page-item">
+				      <a class="page-link" href="list.jsp?page=<%=startPage-1 %>" tabindex="-1" aria-disabled="true">Previous</a>
+				    </li>
+				    <%} %>
+				    <%for(int i=startPage;i<=endPage;i++){ %>
+				    <li class="page-item"><a class="page-link" href="list.jsp?page=<%=i%>"><%=i %></a></li>
+				    <%} %>
+				    <%if(totalBlock==currentBlock){ %>
+				    <li class="page-item disabled">
 				      <a class="page-link" href="#">Next</a>
 				    </li>
+				    <%}else{ %>
+				    <li class="page-item">
+				      <a class="page-link" href="list.jsp?page=<%=endPage+1%>">Next</a>
+				    </li>
+				    <%} %>
 				  </ul>
 				</nav>
 				
 				<div class="text-right"  style="margin-bottom : 20px;">
-					<a href="write.jsp" class="btn btn-outline-danger">글쓰기</a>
+					<a href="write.jsp?page=<%=cPage%>" class="btn btn-outline-danger">글쓰기</a>
 				</div>
 	        	
 	        	</div>
 	        </div>
         </div>
     </div>
+
+
+
 
 <%@ include file="../inc/footer.jsp"%>
