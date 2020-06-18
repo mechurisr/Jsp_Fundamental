@@ -4,6 +4,6 @@
 <%
 	session.invalidate();//세션객체를 삭제한다.
 	//session.removeAttribute("login"); //세션 객체의 속성을 삭제
-	response.sendRedirect("../grammar/Title.jsp");
+	response.sendRedirect("Title.jsp");
 %>
 	

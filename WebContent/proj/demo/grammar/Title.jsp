@@ -55,7 +55,7 @@
 	<form method="post" action="checkLogin.jsp">
 	<div class="card align-middle" style="width:20rem; border-radius:20px;">
 		<div class="card-title" style="margin-top:30px;">
-			<p><img src="로고3.png" align="center"></p>
+			<p><img src="logo1.png" align="center"></p>
 		</div>
 		<div class="card-body">
       <form class="form-signin" method="POST" onSubmit="logincall();return false">
