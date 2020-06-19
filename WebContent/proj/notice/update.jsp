@@ -1,7 +1,11 @@
+<%@page import="kr.or.kpc.dto.CustomerDto"%>
 <%@page import="kr.or.kpc.dto.NoticeDto"%>
 <%@page import="kr.or.kpc.dao.NoticeDao"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
+
 <%
+	CustomerDto customerDto = (CustomerDto)session.getAttribute("login");
+	if(customerDto != null){
 	request.setCharacterEncoding("utf-8");
 	String writer = request.getParameter("writer");
 	String title = request.getParameter("title");
@@ -26,6 +30,11 @@
 			alert('에러..');
 			history.back(-1);
 		</script>
-		<%
-	}
-%>
+		<%}%>
+		
+	<%}else{ %>
+		<script>
+		alert('로그인 사용자만 글을 수정할 수 있습니다.');
+		history.back(-1);
+		</script>
+	<%} %>

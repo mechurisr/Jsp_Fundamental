@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport"
    content="width=device-width, initial-scale=1.0,shrink-to-fit=no">
-<title>코로나선별진료소 검색_CoronaSpot</title>
+<title>코로나선별진료소 검색 CoronaSpot</title>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -62,76 +62,6 @@
 
    //전체 출력
    $(function() {
-      /*
-      $('#searchAll').click(
-           
-           
-           function() {
-              
-              $("#content2").empty();
-              let message = "";
-              
-              let url = '../Team_Project/hospital.json';
-              xhr.open('GET', url, true);
-              xhr.send(null);
-              xhr.onreadystatechange = function() {
-                 if (xhr.readyState == 4 && xhr.status == 200) {
-                   
-                    
-                  
-                    message +="<div class='table-responsive-md col text-center'>";
-                    
-                    message +="<table class='table table-bordered table-striped'>";
-                    
-                    message +="<thead>";
-                    message +="<tr>";
-                    message +="<th style="+"width:8%"+">번호</th>";
-                    message +="<th style="+"width:30%"+">이름</th>";
-                    message +="<th style="+"width:47%"+">주소</th>";
-                    message +="<th style="+"width:15%"+">전화번호</th>";
-                  
-                    message +="</tr>";
-                    message +="</thead>";
-                    message +="<tbody>";
-                  var indexList = 1;
-                  
-                    //console.log(xhr.responseText);
-                    //console.log(typeof xhr.responseText);
-                    const obj = JSON.parse(xhr.responseText);
-                    const listArray = obj.hospital1;
-                    
-                    for (let i = 0; i < listArray.length; i++) {
-                       
-                       
-                       const listObj = listArray[i];
-                        let 기준일시 = listObj.기준일시;
-                       let 검체채취 = listObj.검체채취;
-                       let 시도 = listObj.시도;
-                       let 시군구 = listObj.시군구; 
-                       let 의료기관명 = listObj.의료기관명;
-                        let 주소 = listObj.주소;
-                       let 전화번호 = listObj.대표전화번호; 
-                       
-                        message +="<td>"+indexList+"</td>";
-                       message += "<td><a href='https://map.kakao.com/link/search/" + 의료기관명 + "' target='_blank'>"+ 의료기관명+"</a></td>";
-                       message +="<td>"+주소+"</td>";
-                       message +="<td>"+전화번호+"</td>";
-                       message += "</tr>";
-                     indexList +=1; 
-                       
-                        message += "<li>" + "의료기관명:<td><a href='https://map.kakao.com/link/search/" + 의료기관명 + "' target='_blank'>"+ 의료기관명+"</a></td><br>"
-                       +" 주소:" + 주소 + "</li><br>"; 
-                    }
-                    
-                    message += "";
-                    message +="</tbody>"; 
-                    message +="</table>";
-                    message +="</div>"; 
-               $('#content2').append(message);
-                    
-                 }
-              }
-           });*/
       //검색출력
       $('#search')
             .click(
@@ -162,18 +92,7 @@
                            message += "</thead>";
                            message += "<tbody>";
                            var indexList = 1;
-                           /*       for(var i in json.stores){
-                                    msg += "<tr>";
-                                    
-                                    var name = json.people1[i].거주지;
-                                    
-                                    console.log(name);
-                                    
-                                    msg +="<td>"+index+"</td>";
-                                    msg +="<td>" +name +"</td>";
-                                 msg += "</tr>";
-                                    index +=1;
-                                 } */
+
 
                            //console.log(xhr.responseText);
                            //console.log(typeof xhr.responseText);
@@ -242,7 +161,7 @@
 
 <body>
    <div class="container">
-      <div class="row" style="margin-top: 20px">
+      <div class="row" style="margin-top: 120px">
          <div class="col-sm-12">
             <h5 class="card-title">
                <strong>코로나 선별 진료소 검색</strong>

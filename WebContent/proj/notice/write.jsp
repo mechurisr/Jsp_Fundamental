@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <title>글 작성</title>
 <%@ include file="../inc/Header.jsp"%>
 <%
 	String tempPage = request.getParameter("page");
@@ -14,12 +15,8 @@
 		cPage = 1;
 	}
 %>
-	<nav aria-label="breadcrumb ">
-	  <ol class="breadcrumb justify-content-end">
-	    <li class="breadcrumb-item "><a href="../layout/main.jsp">홈</a></li>
-	    <li class="breadcrumb-item active">게시판</li>
-	  </ol>
-	</nav>
+<div class="row" style="margin-top: 80px">
+</div>
 	
     <div class="container">
     	<div class="row">

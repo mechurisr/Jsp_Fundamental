@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>구별 확진자수 집계_CoronaSpot</title>
+<title>구별 확진자수 집계 CoronaSpot</title>
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
    href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
@@ -129,16 +129,16 @@
 
 <body>
    <div class="container">
-      <div class="row" style="margin-top: 10px">
+      <div class="row" style="margin-top: 120px">
          <div class="col-sm-12 text-center">
             <strong><h1 class="card-title">구별 확진자 수 집계</h1></strong>
-            <!-- <div class="form-row d-flex align-items-center"> -->
+            <div class="form-row d-flex align-items-center"> 
                
-              <!--  <div class="form-group col-md-2">
+              <div class="form-group col-m-2">
                   
                   
-               </div> -->
-            <!-- </div> -->
+               </div> 
+             </div> 
          </div>
       </div>
       

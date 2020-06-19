@@ -3,13 +3,10 @@
 <%@page import="kr.or.kpc.dao.NoticeDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <title>공지사항 게시판 CoronaSpot</title>
 <%@ include file="../inc/Header.jsp"%>
-	<nav aria-label="breadcrumb ">
-	  <ol class="breadcrumb justify-content-end">
-	    <li class="breadcrumb-item active"><a href="../layout/main.jsp">홈</a></li>
-	    <li class="breadcrumb-item ">게시판</li>
-	  </ol>
-	</nav>
+<div class="row" style="margin-top: 80px">
+</div>
 <%
 	int displayCount = 10;
 	int displayPageCount = 10;
@@ -42,7 +39,8 @@
     <div class="container">
     	<div class="row">
 	        <div class="col-md-12">
-	        	<h3>공지사항 리스트</h3>
+	        	<h3>공지사항 게시판</h3>
+	        	<i>생각보다 중요한 글이 올라오지는 않습니다.<br></i>
 	        	<div class="table-responsive">
 	        	<table class="table table-hover">
 	        	  <colgroup>

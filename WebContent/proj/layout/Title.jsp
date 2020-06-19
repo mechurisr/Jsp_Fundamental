@@ -68,7 +68,7 @@
 				       이메일을 입력하세요.
 				    </div>
 				    <div class="valid-feedback">
-				        좋습니다.
+				        멋집니다.
 				    </div>
 	              </div>
 	              <div class="form-group">
@@ -77,7 +77,7 @@
 				    	비밀번호를 입력하세요.
 				    </div>
 				    <div class="valid-feedback">
-				    	좋습니다.
+				    	훌륭합니다.
 				    </div>
 	              </div>
         <button id="btn-Yes" class="btn btn-lg btn-primary btn-block" type="submit">로 그 인</button>
@@ -96,7 +96,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> 
-    <script>
+   <script>
 		$(function(){
 			const email = $("#email");
 			const pwd = $("#pwd");
@@ -117,6 +117,7 @@
 				}
 				if(!pwd.val()){
 					pwd.addClass("is-invalid");
+					$("#errorPwd").text('비밀번호를 입력하세요.');
 					pwd.focus();
 					return;
 				}

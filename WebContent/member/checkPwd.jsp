@@ -4,13 +4,12 @@
 <%
 	String email = request.getParameter("email");
 	String pwd = request.getParameter("pwd");
-	System.out.println
+	//System.out.println(email);
 	CustomerDao dao = CustomerDao.getInstance();
 	CustomerDto dto = dao.getLogin(email, pwd);
 	
 	if(dto != null){
-
-		response.sendRedirect("/notice/mypage.jsp");
+		response.sendRedirect("/member/mypage.jsp");
 	}else{
 		//email, pwd가 일치하지 않은 경우
 		%>

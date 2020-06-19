@@ -31,7 +31,7 @@
 </head>
 <body>
 	<!-- Navigation Bar -->
-	<nav class="navbar navbar-expand-md navbar-dark bg-dark" >
+	<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark" >
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -70,13 +70,19 @@
 		        	<strong style="color:white;"><%=customerDto.getName() %></strong>님
 		        </a>
 		      </li>
-		      <li class="nav-item">
+		     <!--  <li class="nav-item">
 		        <a class="nav-link" href="../member/logout.jsp">[로그아웃]</a>
-		      </li>
+		      </li>  -->
+		      <li class="nav-item">
+       			 <button class="btn btn-outline-primary my-2 my-sm-0" button type="button" onclick="location.href='../member/logout.jsp' ">Logout</button>
+				</li>
 	    	<%}else{ %>
-	    		<li class="nav-item">
+	    		<!-- <li class="nav-item">
 		        	<a class="nav-link" href="../layout/Title.jsp">로그인</a>
-		      	</li>
+		      	</li>  -->
+		      	<li class="nav-item">
+       			 <button class="btn btn-outline-success my-2 my-sm-0" button type="button" onclick="location.href='../layout/Title.jsp'">Login</button>
+      			</li>
 	    	<%} %>
 	    	</ul>
 	    </div>

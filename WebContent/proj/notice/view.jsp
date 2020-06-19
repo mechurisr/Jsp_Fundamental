@@ -3,6 +3,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../inc/Header.jsp"%>
+<div class="row" style="margin-top: 80px">
+</div>
 <%
 	String tempPage = request.getParameter("page");
 	String tempNum = request.getParameter("num");
@@ -26,12 +28,7 @@
 	String title = dto.getTitle();
 	String content = dto.getContent();
 %>
-	<nav aria-label="breadcrumb ">
-	  <ol class="breadcrumb justify-content-end">
-	    <li class="breadcrumb-item "><a href="#">홈</a></li>
-	    <li class="breadcrumb-item active">공지사항</li>
-	  </ol>
-	</nav>
+
 	
     <div class="container">
     	<div class="row">
